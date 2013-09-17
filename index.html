@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Colorave by Visheshk</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Colorave</h1>
+        <p>Wave on the colors!</p>
+
+        <p class="view"><a href="https://github.com/Visheshk/colorave">View the Project on GitHub <small>Visheshk/colorave</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Visheshk/colorave/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Visheshk/colorave/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Visheshk/colorave">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="colorave" class="anchor" href="#colorave"><span class="octicon octicon-link"></span></a>Colorave</h1>
+
+<p>This project was conceptualised with the aim of enabling learners to correlate the concept of light's waveform and the color it belongs to. Basically, by manipulating different parameters of the wave function describing a beam of light, see what color it corresponds to. This should help ground, by personal manipulation, the impact of a photons' frequency on the color of light.</p>
+
+<h3>
+<a name="diversions-and-imagined-extension" class="anchor" href="#diversions-and-imagined-extension"><span class="octicon octicon-link"></span></a>Diversions, and imagined extension</h3>
+
+<p>Initially this was imagined to extend in two possible ways. One, was seeing how the mixing of colors worked, by describing multiple waves and playing around with them. This could be a fascinating foray to understand color theory, grounded much more in physics than in the notion of inks, pixels, and vague concepts of how displays work. I found this to be a potentially exciting line of thought and understanding, albeit not very necessary in learning physics/optics maybe. </p>
+
+<p>The other was being able to manipulate and see the behavior of light's waveform, in parallel with seeing the physical optical phenomena that take place – for instance, refraction on the interfaces of media, splitting of colors through a prism, etc. In principle, it would be quite fun to be able to have a wave simulation of the double slit experiment, and more advanced experiments as well! 
+Could this be made by programming elementally, the nature of how light's wave worked? I was (and still am) highly doubtful of actually being able to make for the entire imagined scope, because light is a transverse, electromagnetic wave. It's not like the wave itself is moving. The waveform, the depicted sine wave, is just a representation of the frequency with which the photons are vibrating, in my understanding. This is still an open question. It won't make sense to see the waveform move, and the real behavior of the waveform is likely to have a clash with physical observations, because as has been said often enough, the wave in reality is only a mathematical abstraction/representation, not the thing in itself.</p>
+
+<h2>
+<a name="round-1" class="anchor" href="#round-1"><span class="octicon octicon-link"></span></a>Round 1</h2>
+
+<p><img src="http://www.visheshk.net/wp-content/uploads/2013/09/1.jpg" alt="In the Ultraviolet">
+Over a weekend project prototyping workshop for projects, I prepared a basic setup that would take fiducial input for accepting the wave's configuration, and (in principle), project the waveform on top of the fiducials' positions, and also show the color obtained.</p>
+
+<p>The first point of conflict/confusion emerged at the question – given a wavelength, what color does it correspond to? Especially, what color on a computer screen does it relate to?
+There is quite a bit of discourse [on the internet] on this (not unlike most topics one can think of) [1], which mentions fascinating things about how the RGB rendering does not have a true correspondence with light's wavelength, that possibly HSB (Hue-Saturation-Brightness) has a better correspondence with the features of wavelength and amplitude of light[2], and a rough approximation, that for reasons of ease, I used[3]. There's also a matlab function[4] which I didn't find in time, and don't yet know how to engage inside my processing program at the moment.
+<img src="http://www.visheshk.net/wp-content/uploads/2013/09/2.jpg" alt="Getting beyond the blues"></p>
+
+<p>[1] <a href="http://www.scientificbulletin.upb.ro/rev_docs_arhiva/full49129.pdf">FROM WAVELENGTH TO R G B FILTER - Scientific Bulletin</a>
+[2] <a href="http://stackoverflow.com/questions/5817474/how-to-get-the-wavelength-of-a-pixel-using-rgb">Get the wavelength of a pixel from its RGB value</a>
+[3] <a href="http://stackoverflow.com/a/14917481/1927125">Convert light frequency to RGB</a>
+[4] <a href="http://www.mathworks.in/help/symbolic/mupad_ref/rgb-fromwavelength.html">RGB-::fromWavelength</a></p>
+
+<h3>
+<a name="discoveries-and-further-thoughts" class="anchor" href="#discoveries-and-further-thoughts"><span class="octicon octicon-link"></span></a>Discoveries and further thoughts</h3>
+
+<p>For the fun of it, I added "RGB" channels beside the composite color box, to see what RGB configurations made the colors. And in playing around with it, I noticed something quite unexpected. No color in the spectrum, had all 3 RGB channels active at any point of time. (In retrospect, seeing that my RGB conversion was forced case consideration, this might just be a result of the specific code I copied.) But what this alerted me to, was the observation that the <em>spectrum did not have all colors</em>! This came almost as a shock to me.
+And after a small amount of thought, I recalled the color I knew for sure has all 3 RGB channels – and looked for the wavelength of grey. And not very surprisingly, read that grey, like white, was a mixture of all the wavelengths, but with lesser… quantity? [This continues to be a grey area in my knowledge. See what I did there?] We've always read that white is a mixture of all the colors. So, why was this surprising? I discussed around, and finally managed to articulate some notion of what was unexpected.
+That all colors aren't in the spectrum directly, means that <em>nature has its own set of primary colors</em>, which does not include all the colors that are seen. The colors in the spectrum, are fundamental, in some sense. Unlike RGB, inherently there're an infinitude of them. This sparked discussions regarding the choice of Red, Green, Blue, and the sensibility behind it. When discussing colors, especially in the context the computer, it appears rather confusing to figure out which came first. Is a color, a wavelength of light? Because in that sense, grey is not a color! Is a color a mixture of the red, green, blue channels? That seems like a rather contrived (and fairly inappropriate) way to see it. 
+After quite a bit of discussion, we roughly came to a hypothesis that red green and violet makes more sense to be the primary colors, and that we'll read more to understand how this works.
+The next thing to do with respect to colors, is to allow for the definition of multiple waves, and see how different colors result from that. An alternate possibility, is to allow the choice of a color, and see what mixture(s) of waves allows for that to be made. </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Visheshk">Visheshk</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
