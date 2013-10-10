@@ -16,6 +16,7 @@ float scale_factor = 1;
 PFont font;
 Boolean draw;
 TuioObject tobj[];
+float[] tot = {0, 0, 0};
 float[][] lastT = {
   {
     0, 0
@@ -141,7 +142,7 @@ void drawColor(float w, float intensity, int i) {
   float R, G, B, A;
   //float w = abs(700 * frac / 1.5);
   //if (w >= 380 && w < 440){
-  if (w < 440) {
+  if (w >= 380 && w < 440) {
     R = -(w - 440.0) / (440.0 - 380.0);
     G = 0.0;
     B = 1.0;
@@ -167,55 +168,52 @@ void drawColor(float w, float intensity, int i) {
     B = 0.0;
   }
   //else if (w >= 645 && w <= 780){
-  else if (w >= 645) {
+  else if (w >= 645 && w <= 780) {
     R = 1.0;
     G = 0.0;
     B = 0.0;
   }
-  else {
+  else{
     R = 0.0;
     G = 0.0;
     B = 0.0;
   }
+  float sss = 1;
+  if(w >= 700){
+    sss = 0.3 + 0.7 * (780.0 - w) / (780.0 - 700.0);  
+  }
+  else if (w <= 420){
+    sss = 0.3 + 0.7 * (w - 380.0) / (420.0 - 380.0);
+  }
+  //float gamma;
+  R *= sss; G *= sss; B *= sss;
   //colorMode();
   intensity = abs(1 - (2 * intensity)/height);
-  fill(R*255, G*255, B*255, intensity*255);
+  //R *= intensity; G *= intensity; B *= intensity;
+  fill(R*255, G*255, B*255);
   colors[i][0] = R*255;
   colors[i][1] = G*255;
   colors[i][2] = B*255;
-  //println(w + " " + R + " " + G + " " + B);
-  /*rect(0, 50, 200, 40);
-   fill(R*255, 0, 0);
-   rect(450, 50, 40, 40);
-   fill(0, G*255, 0);
-   rect(500, 50, 40, 40);
-   fill(0, 0, B*255);
-   rect(550, 50, 40, 40);
-   text(nf(255*R, 3, 2), 450, 40);
-   text(nf(255*G, 3, 2), 500, 40);
-   text(nf(255*B, 3, 2), 550, 40);*/
+  
+  for(int j = 0; j < 3; j++){
+    tot[j] += colors[i][j];
+    if (tot[j] > 255)
+      tot[j] = 255;
+  }
+  
 }
 
 
 void drawAxis() {
-  //draw x axis -- done
-  //draw projection of fiducials on x axis -- done
-  //draw y height
-  //write light wavelength above -- done
-  
-  /*
-  fill(0);
 
-  float lightLambda = w[0][0];
-  String wlength; 
-  if (lightLambda < 380)
-    wlength = "Ultraviolet";
-  else if (lightLambda > 700)
-    wlength = "Infrared";
-  else
-    wlength = "Wavelength: " + nf(lightLambda, 3, 2) + " nanometers";
-  text(wlength, 450, 100);  // Default depth, no z-value specified
-  */
+}
+
+void totalColor() {
+  fill(tot[0], tot[1], tot[2], 255);
+  rect(0, 2 * height / 3, width, 10);
+  //for()
+  fill(0);
+  text(tot[0] + " " + tot[1] + " " + tot[2], 20, height - 100);
 }
 
 void drawBar(int i) {
@@ -235,6 +233,7 @@ void getPos() {
     drawBar(i);
     //print(i + " ");
   }
+  totalColor();
   //print("\n");
 }
 
@@ -248,6 +247,7 @@ void draw() {
   fill(0);
   objList =  tuioClient.getTuioObjects();
   rect(0, height/2, width, 3); //axis
+  tot[0] = 0; tot[1] = 0; tot[2] = 0;
   
   getPos(); //get the positions of the tuioObjects
   drawAxis(); //draw the axes, ideally label frequency and intensity
