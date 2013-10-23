@@ -58,8 +58,7 @@ int findObj(Vector objList,int id){
 void drawColor(){
   float R, G, B, A;
   float w = abs(700 * frac / 1.5);
-  //if (w >= 380 && w < 440){
-  if (w < 440){
+  if (w >= 380 && w < 440){
     R = -(w - 440.0) / (440.0 - 380.0);
     G = 0.0;
     B = 1.0;
@@ -84,8 +83,7 @@ void drawColor(){
     G = -(w - 645.0) / (645.0 - 580.0);
     B = 0.0;
   }
-  //else if (w >= 645 && w <= 780){
-  else if (w >= 645){
+  else if (w >= 645 && w <= 780){
     R = 1.0;
     G = 0.0;
     B = 0.0;
@@ -95,8 +93,19 @@ void drawColor(){
     G = 0.0;
     B = 0.0;
   }
+  float sss = 1;
+  if(w >= 700){
+    sss = 0.3 + 0.7 * (780.0 - w) / (780.0 - 700.0);  
+  }
+  else if (w <= 420){
+    sss = 0.3 + 0.7 * (w - 380.0) / (420.0 - 380.0);
+  }
   //colorMode();
-  fill(R*255, G*255, B*255, abs(yScale*255));
+  R *= abs(yScale)*sss;
+  G *= abs(yScale)*sss;
+  B *= abs(yScale)*sss;
+  //fill(R*255, G*255, B*255, abs(yScale*255));
+  fill(R*255, G*255, B*255);
   //println(w + " " + R + " " + G + " " + B);
   rect(0,50,200,40);
   fill(R*255, 0, 0);
