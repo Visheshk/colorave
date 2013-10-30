@@ -186,8 +186,9 @@ void drawColor(float w, float intensity, int i) {
   //float gamma;
   R *= sss; G *= sss; B *= sss;
   //colorMode();
+  intensity = intensity + 
   intensity = abs(1 - (2 * intensity)/height);
-  //R *= intensity; G *= intensity; B *= intensity;
+  R *= intensity; G *= intensity; B *= intensity;
   fill(R*255, G*255, B*255);
   colors[i][0] = R*255;
   colors[i][1] = G*255;
