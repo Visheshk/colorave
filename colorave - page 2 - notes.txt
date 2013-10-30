@@ -1,0 +1,46 @@
+colorave - page 2
+Frequency intensity distribution
+
+
+2-3 aspects
+
+What is happening here?
+	Frequency intensity representation.
+	Lower bar shows the total color and the numbers are the RGB values of the 'total' color.
+
+	Inadequacy/mistake:
+		In conversion to RGB, something is happening that is making white obtainable in a lot of ways.
+
+How to learn from this? Or be a useful play tool?
+	Maybe more information will help build more connections?
+	Planning to add RGB channels, possibly the waveform drawings, and for craziness's sake, associated sounds?
+
+The things you'll make
+	Building this was an exercise in reflection, understanding, and intermediate bits of hacking. And a great learning experience. I believe it hinged on the fascinating observation I made, about all the RGB channels not being active.
+	Kids would, indeed, be strongly pulled to explore things that confuse them.
+	Nevertheless, building a tool to explain a concept seems to be a great exercise in comprehending a concept. Kids should be told to make tools that connect two or more concepts, not immediately related. 
+---
+
+What is happening here?
+	The fiducials are being used to define the wavelength-intensity representation of the target light signal/color. In the real world, the light signal, ideally 'created' as a mixture of laser beams resulting in one visible color, would be processed, and its Fourier Transform would give the representation that you are creating (this is my understanding). But more simply, each fiducial marker you put, each column you create, stands for individual waves, with their wavelength marked on the oval top of the columns. The height of the column, is the intensity of the wave you're creating.
+	The bar at the bottom, is the 'sum' color of the waves you put up. Each bar, each wave, can also be said to be distinct laser beams. If you had the multiple laser beams you've created, composited, their total color, would be the bar you see at the bottom (roughly speaking).
+	The numbers at the bottom left, is the RGB configuration of the total color.
+
+	Why do I see a lot of white?
+		In the video, and if you played around with this yourself, you'd notice that white or close enough colors come up quite a lot. 
+		I don't have a very good/precise explanation, but I figure this is because there is quite a bit of information lost in making the specific color defined by a wavelength on a spectrum, being represented by just three color channels, in values between 0 to 255. 
+		I did figure this out in the last report – the point of surprise with what happened the last time, was that nature has its own 'palette' of primary colors which is referring to the colors that laser beams can have individually. And this does not include all the colors that one would see. But information or variety seems to be lost, when one reduces the primary palette to just three colors.
+		Why I say this, is because entire white should only come up when the wavelength intensity representation is a big rectangle i.e. waves of all wavelength are transmitted at full intensity simultaneously. But in this case, 255,255,255 or the grays which are lower fractions of the same, come up in numerous sub-cases. Simply on sending full red-green-blue as well.
+		This is an interesting question to look into – what would be the visible color in the real world if just red, green, and blue lasers were transmitted simultaneously? It shouldn't be white, because white requires many more waves – but it would be pretty close, if the RGB description is of substantial merit. 
+
+What is Colorave, in entirety?
+	It was suppoed to be a learning tool. Initially, I had vaguely imagine that you could define waves, and then put a prism in front of the light beam you created, or mirrors, and play around with seeing how light worked. I could probably still do that. But in and of itself, this doesn't seem to hold a lot of learning potential. I don't see anybody grasping any useful context by seeing what RGB color comes up on mixing different wavelengths. These are, agreeably from concepts from two different realms that don't mix very meaningfully.
+	So I'm not sure where to push this, in terms of its potential as a learning tool. I do plan to add some more functionality, show the total wave shape of the total color perhaps, see the RGB channels, try and imagine what can be done. But, making this did expose to me another fascinating aspect of the experience.
+
+Oh, the things you'll make
+	Building this was an exercise in reflection, understanding, and intermediate bits of hacking. And a great learning experience. I believe it hinged on the fascinating observation I made, about all the RGB channels not being active, in the first part.
+	Kids would, indeed, be strongly pulled to explore things that confuse them. But it would be a tall order to make it more likely (or something of that nature,) for them to discover such points to be surprised or confused by.
+	Nevertheless, building a tool to explain a concept seems to be a great exercise in comprehending a concept. Kids should be told to make tools that connect two or more concepts, not immediately related. Maybe, they should be told to try designing a learning tool. Or maybe, just a tool that allows them to change variables and explore the correlation between two connected factors. 
+
+	So, to push this orientation, I imagine two things could/should be done. One, design or select exercises like these. Tell the kid, to make a tool to exhibit how light's waveform connects to its color. Currently, I'm thinking on the lines of other principles of optics, sound or other waves, and possibly mechanics.
+	And/or two, try to make a tool that encourages or eases such activities – that the scripting part is not a hindrance to preparing a digital or similar rendering of their understanding of concepts.
