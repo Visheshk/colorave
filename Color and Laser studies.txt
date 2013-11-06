@@ -1,0 +1,16 @@
+Color and Laser studies:
+
+http://www.researchgate.net/post/The_interference_between_two_different_lasers_at_the_same_wavelength
+
+http://www.physicsforums.com/showthread.php?t=218827
+
+http://www.ia.ucsb.edu/pa/display.aspx?pkey=2679
+
+
+Color transformation:
+
+http://www.physics.sfasu.edu/astro/color/spectra.html _alogrithm_ ! that has been used
+http://www.midnightkite.com/color.html
+http://octave.1599824.n4.nabble.com/Color-By-Frequency-td4238694.html
+http://www.ams.com/eng/Products/Light-Sensors/Color-Sensor/TCS3200
+
